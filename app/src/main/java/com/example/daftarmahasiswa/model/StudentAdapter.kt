@@ -11,7 +11,7 @@ import com.example.daftarmahasiswa.R
 class StudentAdapter(
     private val studentList: ArrayList<Student>,
     private val onDeleteClick: (Student) -> Unit,
-    private val onItemClick: (Student) -> Unit   // 👉 TAMBAHAN
+    private val onItemClick: (Student) -> Unit   
 ) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -25,12 +25,10 @@ class StudentAdapter(
         holder.itemNama.text = student.nama
         holder.itemNim.text = student.nim
 
-        // DELETE
         holder.btnDelete.setOnClickListener {
             onDeleteClick(student)
         }
 
-        // 👉 KLIK ITEM = EDIT
         holder.itemView.setOnClickListener {
             onItemClick(student)
         }
